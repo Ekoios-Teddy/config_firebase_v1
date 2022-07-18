@@ -1,12 +1,12 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {Platform, StyleSheet, Text, View} from 'react-native';
 import auth from '@react-native-firebase/auth';
 
 const App = () => {
   auth()
     .signInWithEmailAndPassword('tho@gmail.com', 'tho1998')
     .then(() => {
-      console.log('User account created & signed in!');
+      console.log('User account created & signed in!', Platform.OS);
     })
     .catch(error => {
       if (error.code === 'auth/email-already-in-use') {
